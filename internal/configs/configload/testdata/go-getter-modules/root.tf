@@ -9,13 +9,13 @@ variable "v" {
 }
 
 module "acctest_root" {
-  source = "github.com/hashicorp/terraform-aws-module-installer-acctest?ref=v0.0.1"
+  source = "github.com/hashicorp/terraform-aws-module-installer-acctest?ref=v0.0.2"
 }
 
 module "acctest_child_a" {
-  source = "github.com/hashicorp/terraform-aws-module-installer-acctest//modules/child_a?ref=v0.0.1"
+  source = "github.com/hashicorp/terraform-aws-module-installer-acctest//modules/child_a?ref=v0.0.2"
 }
 
 module "acctest_child_b" {
-  source = "github.com/hashicorp/terraform-aws-module-installer-acctest//modules/child_b?ref=v0.0.1"
+  source = "github.com/hashicorp/terraform-aws-module-installer-acctest//modules/child_b?ref=v0.0.2"
 }
