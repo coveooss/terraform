@@ -207,7 +207,7 @@ jobs:
           bash ./internal/command/e2etest/make-archive.sh
 
       - name: Save test harness to cache
-        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
           path: ${{ steps.set-cache-values.outputs.e2e-cache-path }}
           key: ${{ steps.set-cache-values.outputs.e2e-cache-key }}_${{ matrix.goos }}_${{ matrix.goarch }}
@@ -247,7 +247,7 @@ jobs:
         if: ${{ (matrix.goos == 'linux') || (matrix.goos == 'darwin') }}
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: "Restore cache"
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         id: e2etestpkg
         with:
           path: ${{ needs.e2etest-build.outputs.e2e-cache-path }}
