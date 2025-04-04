@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     container: hashicorpdev/backport-assistant:0.4.7@sha256:36f9d4fba82b9454f1f62bf76c8078fafe3ab0be71356cb96af6d56ac4482cd8
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: Run Backport Assistant
         run: |
           backport-assistant backport
