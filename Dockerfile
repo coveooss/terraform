@@ -10,7 +10,7 @@
 # the officially-released binary from releases.hashicorp.com and are
 # built by the (closed-source) official release process.
 
-FROM docker.mirror.hashicorp.services/golang:alpine
+FROM docker.mirror.hashicorp.services/golang:alpine@sha256:ef18ee7117463ac1055f5a370ed18b8750f01589f13ea0b48642f5792b234044
 LABEL maintainer="HashiCorp Terraform Team <terraform@hashicorp.com>"
 
 RUN apk add --no-cache git bash openssh
