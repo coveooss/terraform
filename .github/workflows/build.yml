@@ -37,6 +37,11 @@ jobs:
       pkg-name: ${{ steps.get-pkg-name.outputs.pkg-name }}
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Get Package Name
         id: get-pkg-name
@@ -64,6 +69,11 @@ jobs:
       go-version: ${{ steps.get-go-version.outputs.version }}
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Determine Go version
         id: get-go-version
@@ -77,6 +87,11 @@ jobs:
       filepath: ${{ steps.generate-metadata-file.outputs.filepath }}
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Generate package metadata
         id: generate-metadata-file
@@ -139,6 +154,11 @@ jobs:
       repo: "terraform"
       version: ${{needs.get-product-version.outputs.product-version}}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Build Docker images
         uses: hashicorp/actions-docker-build@11d43ef520c65f58683d048ce9b47d6617893c9a # v2
@@ -180,6 +200,11 @@ jobs:
       build_script: ./internal/command/e2etest/make-archive.sh
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - name: Set Cache Values
         id: set-cache-values
         run: |
@@ -243,6 +268,11 @@ jobs:
       # and e2etest package for this platform. (This helps ensure that we're
       # really testing the release package and not inadvertently testing a
       # fresh build from source.)
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - name: Checkout repo
         if: ${{ (matrix.goos == 'linux') || (matrix.goos == 'darwin') }}
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -299,6 +329,11 @@ jobs:
       version: ${{needs.get-product-version.outputs.product-version}}
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
       - name: Install Go toolchain
         uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
         with:
