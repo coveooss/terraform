@@ -19,15 +19,15 @@ variable "v" {
 
 module "acctest_root" {
   source  = "hashicorp/module-installer-acctest/aws"
-  version = "0.0.1"
+  version = "0.0.2"
 }
 
 module "acctest_child_a" {
   source  = "hashicorp/module-installer-acctest/aws//modules/child_a"
-  version = "0.0.1"
+  version = "0.0.2"
 }
 
 module "acctest_child_b" {
   source  = "hashicorp/module-installer-acctest/aws//modules/child_b"
-  version = "0.0.1"
+  version = "0.0.2"
 }
